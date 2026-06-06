@@ -1,0 +1,18 @@
+trigger:
+- main
+
+variables:
+  azure_static_web_apps_api_token: '0dda0020c5a5ca8562d2392ae815766acdbab1c885d1f3fc3f898545334c511607-20307cd9-9fde-48f6-9eb1-ff60c287ed5800f0626031c90d0f'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- checkout: self
+
+- task: AzureStaticWebApp@0
+  inputs:
+    app_location: '/'
+    output_location: ''
+    skip_app_build: true
+    azure_static_web_apps_api_token: $(azure_static_web_apps_api_token)
